@@ -2,6 +2,7 @@ from langchain.chat_models.base import BaseChatModel
 from langchain.schema.vectorstore import VectorStore, VectorStoreRetriever
 
 from backend.modules.retrievers.custom_retriever import CustomRetriever
+from backend.modules.retrievers.credit_card_retriver import CreditCardRetriver
 from backend.utils.base import RetrieverConfig
 
 
@@ -27,3 +28,6 @@ def get_retriever(
             return base_retriever
         case "CustomRetriever":
             return CustomRetriever(retriever=base_retriever, llm=llm)
+        case "CreditCardRetriver":
+            return CreditCardRetriver(retriever=base_retriever, llm=llm)
+
